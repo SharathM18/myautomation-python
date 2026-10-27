@@ -1,0 +1,27 @@
+# All values must be STRING format
+
+app_name: "my_analytics_service"
+version: "2.1"
+debug_mode: "true"
+database:
+  host: "localhost"
+  port: "5432"
+  timeout: "30"
+allowed:
+  hosts:
+    - "127.0.0.1"
+    - "localhost"
+  port:
+    - "8080"
+
+project:
+  mission:
+    bug: 10
+    ip:
+      pcie: 12
+      lpddr6: 30
+  candlestick:
+    bug: 20
+    ip:
+      pcie: 12
+      lpddr6: 30

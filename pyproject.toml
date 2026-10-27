@@ -1,0 +1,87 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "myautomation"
+version = "0.1.0"
+description = "..."
+readme = "README.md"
+requires-python = ">=3.14"
+license = { text = "MIT" }
+authors = [
+    { name = "example", email = "example@example.com" }
+]
+keywords = ["automation", "cli"]
+
+dependencies = [
+    "pendulum>=3.2.0",
+    "pyyaml>=6.0.0",
+    "pydantic>=2.14.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.4.0",
+    "mypy>=1.10.0",
+    "pre-commit>=3.7.0",
+    "build>=1.2.0",
+]
+
+db = [
+    "sqlalchemy>=2.0.0",
+]
+
+all = [
+    "ruff>=0.4.0",
+    "mypy>=1.10.0",
+    "pre-commit>=3.7.0",
+    "build>=1.2.0",
+    "sqlalchemy>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/myautomation"
+Documentation = "https://github.com/yourusername/myautomation#readme"
+Repository = "https://github.com/yourusername/myautomation.git"
+Issues = "https://github.com/yourusername/myautomation/issues"
+
+[project.scripts]
+automate = "myautomation.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/myautomation"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "W",
+    "F",
+    "I",
+    "B",
+    "C4",
+    "UP",
+    "N",
+    "SIM",
+]
+
+ignore = [
+    "E501",
+    "B008",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[tool.mypy]
+python_version = "3.14.7"
+ignore_missing_imports = true
